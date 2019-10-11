@@ -78,15 +78,39 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
+
+//Using 'for loop' to sum an array elements
+
+// function forLoopTosumArrayElements(sumArr){
+//   var totalSumOfArray = 0;
+//   for(var i=0 ; i < sumArr.length ; i++){    
+//     totalSumOfArray = totalSumOfArray + sumArr[i];
+//   }
+//   var returnedArray = [
+//     totalSumOfArray,
+//     '' + sumArr[0] + ',' + sumArr[1] + ',' + sumArr[2] + ' was passed in as an array of numbers, and ' + totalSumOfArray + ' is their sum.'
+//   ];
+//   return returnedArray;
+// }
+
 var testArray = [2, 3, 4]; //eslint-disable-line
 
-function sumArray(sumArr) { //eslint-disable-line
-
+function sumArray(sumArr) { //eslint-disable-line  
+  // return forLoopTosumArrayElements(sumArr);
+  var totalSumOfArray = [];
+  var subSumOfArray = [];   
+  subSumOfArray = sum(sumArr[0],sumArr[1]);    
+  subSumOfArray = sum(subSumOfArray[0],sumArr[2]);
+  totalSumOfArray = subSumOfArray[0];
+  var returnedArray = [
+    totalSumOfArray,
+    '' + sumArr[0] + ',' + sumArr[1] + ',' + sumArr[2] + ' was passed in as an array of numbers, and ' + totalSumOfArray + ' is their sum.'
+  ];
+  return returnedArray;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
-
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
