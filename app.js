@@ -81,7 +81,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 //Using 'for loop' to sum an array elements
 
-// function forLoopTosumArrayElements(sumArr){
+// function forLoopToSumArrayElements(sumArr){
 //   var totalSumOfArray = 0;
 //   for(var i=0 ; i < sumArr.length ; i++){    
 //     totalSumOfArray = totalSumOfArray + sumArr[i];
@@ -96,7 +96,7 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line  
-  // return forLoopTosumArrayElements(sumArr);
+  // return forLoopToSumArrayElements(sumArr);
   var totalSumOfArray = [];
   var subSumOfArray = [];   
   subSumOfArray = sum(sumArr[0],sumArr[1]);    
@@ -125,12 +125,37 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-function multiplyArray(multArr) { //eslint-disable-line
 
+//Using 'for loop' to product an array elements
+
+// function forLoopToProductArrayElements(multArr){
+//   var totalProduct = 1;
+//   for(var i=0 ; i < multArr.length ; i++){    
+//     totalProduct = totalProduct * multArr[i];
+//   }
+//   var returnedArray = [
+//     totalProduct,
+//     'The numbers ' + multArr[0] + ',' + multArr[1] + ',' + multArr[2] + ' have a product of ' + totalProduct + '.'
+//   ];
+//   return returnedArray;
+// }
+
+function multiplyArray(multArr) { //eslint-disable-line
+  // return forLoopToProductArrayElements(multArr);
+  var totalProduct = [];
+  var subProductOfArray = [];   
+  subProductOfArray = multiply(multArr[0],multArr[1]);    
+  subProductOfArray = multiply(subProductOfArray[0],multArr[2]);
+  totalProduct = subProductOfArray[0];
+  var returnedArray = [
+    totalProduct,
+    'The numbers ' + multArr[0] + ',' + multArr[1] + ',' + multArr[2] + ' have a product of ' + totalProduct + '.'
+  ];
+  return returnedArray;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
