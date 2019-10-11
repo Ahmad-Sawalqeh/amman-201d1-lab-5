@@ -176,13 +176,71 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
+
+//Using 'for loop' to multiply any arrays
+
+// function forLoopToMultiplyAnyArrayElements(dynamicArray){
+//   var stringPart1 = 'The numbers ';
+//   var stringPart2 = [];
+//   var stringPart3 = ' have a product of ';
+//   var totalProduct = 1;
+//   var stringPart4 = '.';
+//   for (var i=0 ; i < dynamicArray.length ; i++){
+//     if(i < dynamicArray.length-1){
+//       stringPart2 = '' + stringPart2 + dynamicArray[i] + ',';
+//     }else if(i == dynamicArray.length-1){
+//       stringPart2 = '' + stringPart2 + dynamicArray[i];
+//     }
+//     totalProduct = totalProduct * dynamicArray[i];
+//   }
+//   var totalString = stringPart1 + stringPart2 + stringPart3 + totalProduct + stringPart4;
+//   var returnedArray = [
+//     totalProduct,
+//     totalString
+//   ];
+//   return returnedArray;
+// }
+
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+  // return forLoopToMultiplyAnyArrayElements(dynamicArray);
+  var stringPart1 = 'The numbers ';
+  var stringPart2 = [];
+  var stringPart3 = ' have a product of ';
+  var totalProduct = 1;
+  var stringPart4 = '.';
+  var subProductOfArray = [];
+  for (var i=0 ; i < dynamicArray.length ; i++){
+    if(i < dynamicArray.length-1){
+      stringPart2 = '' + stringPart2 + dynamicArray[i] + ',';
+    }else if(i == dynamicArray.length-1){
+      stringPart2 = '' + stringPart2 + dynamicArray[i];
+    }
+    if(i==0){
+      subProductOfArray = multiply(dynamicArray[i],dynamicArray[i+1]);
+      i++;
+    }else if(i>1){
+      subProductOfArray = multiply(subProductOfArray[0],dynamicArray[i]);
+    }
+    if(i == 1){
+      stringPart2 = '' + stringPart2 + dynamicArray[i] + ',';
+    }
+    subProductOfArray.pop();
+  }
+  totalProduct = subProductOfArray[0];
+  var totalString = stringPart1 + stringPart2 + stringPart3 + totalProduct + stringPart4;
+  var returnedArray = [
+    totalProduct,
+    totalString
+  ];
+  return returnedArray;
 }
 
+
+
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
+// console.log(multiplyAnyArray(testDynamicArray));
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
